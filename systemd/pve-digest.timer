@@ -1,0 +1,11 @@
+[Unit]
+Description=Weekly Proxmox LXC health digest
+
+[Timer]
+OnCalendar=Sun *-*-* 09:00:00
+# Fire on next boot if the host was off at the scheduled time.
+Persistent=true
+RandomizedDelaySec=5min
+
+[Install]
+WantedBy=timers.target

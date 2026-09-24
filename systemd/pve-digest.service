@@ -1,0 +1,14 @@
+[Unit]
+Description=Proxmox LXC health digest -> ntfy
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+EnvironmentFile=/etc/pve-digest/pve-digest.env
+ExecStart=/usr/bin/python3 /opt/pve-digest/pve_digest.py
+DynamicUser=yes
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+NoNewPrivileges=yes
